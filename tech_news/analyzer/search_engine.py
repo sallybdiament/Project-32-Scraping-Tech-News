@@ -19,7 +19,7 @@ def search_by_date(date):
         if mat is not None:
             tuples = []
             d = datetime.strptime(date, "%d/%m/%Y").date().strftime('%Y-%m-%d')
-            results = search_news({"timestamp": {"$regex": d }})
+            results = search_news({"timestamp": {"$regex": d}})
             for result in results:
                 tuples.append((result["timestamp"], result["url"]))
         return tuples
