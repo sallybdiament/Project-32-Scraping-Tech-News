@@ -1,4 +1,6 @@
 from tech_news.database import search_news
+import re
+from datetime import datetime
 
 
 # Requisito 7
@@ -12,7 +14,17 @@ def search_by_title(title):
 
 # Requisito 8
 def search_by_date(date):
-    """Seu código deve vir aqui"""
+    try:
+        mat = re.match('(\\d{2})[/.-](\\d{2})[/.-](\\d{4})$', date)
+        if mat is not None:
+            tuples = []
+            correct_date = datetime.strptime(date, "%d/%m/%Y").strftime('%Y-%m-%d')
+            results = search_news({"timestamp": date})
+            for result in results:
+                tuples.append((result["timestamp"], result["url"]))
+    except ValueError:
+        raise ValueError("Data inválida")
+    return tuples
 
 
 # Requisito 9
