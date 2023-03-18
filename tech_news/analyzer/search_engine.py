@@ -22,9 +22,9 @@ def search_by_date(date):
             results = search_news({"timestamp": correct})
             for result in results:
                 tuples.append((result["timestamp"], result["url"]))
+        return tuples
     except ValueError:
         raise ValueError("Data inválida")
-    return tuples
 
 
 # Requisito 9
