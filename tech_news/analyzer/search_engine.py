@@ -18,7 +18,7 @@ def search_by_date(date):
         mat = re.match('(\\d{2})[/.-](\\d{2})[/.-](\\d{4})$', date)
         if mat is not None:
             tuples = []
-            correct = datetime.strptime(date, "%d/%m/%Y").strftime('%Y-%m-%d')
+            correct = datetime.strptime(date, "%d/%m/%Y").date().strftime('%Y-%m-%d')
             results = search_news({"timestamp": correct})
             for result in results:
                 tuples.append((result["timestamp"], result["url"]))
