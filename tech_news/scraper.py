@@ -40,10 +40,10 @@ def scrape_news(html_content):
         minutos = int(read_time[0] + read_time[1])
     else:
         minutos = int(read_time[0])
-    d['url'] = selector.css("link[rel='canonical']::attr(href)").get()
-    d['title'] = selector.css('h1.entry-title::text').get()
+    d['url'] = selector.css("link[rel='canonical']::attr(href)").get().strip()
+    d['title'] = selector.css('h1.entry-title::text').get().strip()
     d['timestamp'] = selector.css('li.meta-date::text').get()
-    d['writer'] = selector.css('a.url.fn.n::text').get()
+    d['writer'] = selector.css('a.url.fn.n::text').get().strip()
     d['reading_time'] = int(minutos)
     d['summary'] = "".join(
         selector.css("div.entry-content > p:first-of-type *::text").getall()
