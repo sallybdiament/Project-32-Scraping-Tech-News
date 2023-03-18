@@ -10,11 +10,11 @@ Projeto 32 da [Trybe](https://wwww.betrybe.com), módulo de Ciência da Computa�
 
 ## O Projeto
 
-* Criar a função fetch(): com a lib 'requests' que retorna o conteúdo html de uma página web.
-* Criar a função scrape_updates(): com a lib 'parsel' que retorna o link da notícia.
-* Criar a função scrape_next_page_link(): com a lib 'parsel' que retorna o link da próxima página.
-* Criar a função scrape_news(): com a lib 'parsel' que retorna um objeto com informações de cada notícia (título, autor, data, primeiro parágrafo, categoria, tempo de leitura e url da notícia).
-* Criar a função get_tech_news(): que chama as funções acima para criar uma lista de dicionários e chama a função create_news() que salva no banco de dados Mongo.
+* Criar a função ```fetch()```: com a lib 'requests' que retorna o conteúdo html de uma página web.
+* Criar a função ```scrape_updates()```: com a lib 'parsel' que retorna o link da notícia.
+* Criar a função ```scrape_next_page_link()```: com a lib 'parsel' que retorna o link da próxima página.
+* Criar a função ```scrape_news()```: com a lib 'parsel' que retorna um objeto com informações de cada notícia (título, autor, data, primeiro parágrafo, categoria, tempo de leitura e url da notícia).
+* Criar a função ```get_tech_news()```: que chama as funções acima para criar uma lista de dicionários e chama a função create_news() que salva no banco de dados Mongo.
 * Criar métodos para filtar as notícias por título, data e categoria.
 
 
@@ -26,11 +26,11 @@ Projeto 32 da [Trybe](https://wwww.betrybe.com), módulo de Ciência da Computa�
 
 #### 2 - Crie o ambiente virtual para o projeto
 
-python3 -m venv .venv && source .venv/bin/activate
+```python3 -m venv .venv && source .venv/bin/activate```
 
 #### 3 - Instalar as dependências
 
-python3 -m pip install -r dev-requirements.txt
+```python3 -m pip install -r dev-requirements.txt```
 
 
 ## Tecnologias
