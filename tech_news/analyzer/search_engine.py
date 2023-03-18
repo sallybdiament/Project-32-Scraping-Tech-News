@@ -18,9 +18,8 @@ def search_by_date(date):
         # mat = re.match('(\\d{2})[/.-](\\d{2})[/.-](\\d{4})$', date)
         # if mat is not None:
         tuples = []
-        d = datetime.strptime(date, "%d/%m/%Y").date()
-        d_mongo = d.strftime('%Y-%m-%d')
-        results = search_news({"timestamp": {"$regex": d_mongo}})
+        d = datetime.strptime(date, "%Y-%m-%d").date().strftime('%d/%m/%Y')
+        results = search_news({"timestamp": {"$regex": d}})
         for result in results:
             tuples.append((result["title"], result["url"]))
         return tuples
