@@ -18,8 +18,8 @@ def search_by_date(date):
         mat = re.match('(\\d{2})[/.-](\\d{2})[/.-](\\d{4})$', date)
         if mat is not None:
             tuples = []
-            correct_date = datetime.strptime(date, "%d/%m/%Y").strftime('%Y-%m-%d')
-            results = search_news({"timestamp": date})
+            correct = datetime.strptime(date, "%d/%m/%Y").strftime('%Y-%m-%d')
+            results = search_news({"timestamp": correct})
             for result in results:
                 tuples.append((result["timestamp"], result["url"]))
     except ValueError:
@@ -29,4 +29,8 @@ def search_by_date(date):
 
 # Requisito 9
 def search_by_category(category):
-    """Seu código deve vir aqui"""
+    tuples = []
+    results = search_news({"category": {'$regex': category, "$options": '-i'}})
+    for result in results:
+        tuples.append((result["title"], result["url"]))
+    return tuples
